@@ -6,7 +6,7 @@ services:
     volumes:
       - ../web-server-api:/app/web-server-api
     ports:
-      - "90:80"
+      - "80:80"
     #links:
     #  - serverdb
   #serverdb:
