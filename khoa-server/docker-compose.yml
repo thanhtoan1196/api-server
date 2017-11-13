@@ -1,0 +1,20 @@
+version: '2'
+services:
+  web:
+    build: .
+    container_name: my-web
+    volumes:
+      - ../web-server-api:/app/web-server-api
+    ports:
+      - "90:80"
+    #links:
+    #  - serverdb
+  #serverdb:
+  #  image: mysql:5.7
+  #  container_name: my-serverdb
+  #  volumes:
+  #    - ./data/mysql:/var/lib/mysql
+  #  environment:
+  #    - MYSQL_ROOT_PASSWORD=he11oadm1n
+  #  ports:
+  #    - 3406:3306
