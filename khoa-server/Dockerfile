@@ -2,7 +2,7 @@ FROM ubuntu:16.10
 
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 RUN apt-get update && apt-get -y upgrade && apt-get -y install \
- apache2 php libapache2-mod-php php-mcrypt php-mysql curl php-cli php-mbstring git unzip php-xml \
+ --assume-yes apt-utils apache2 php libapache2-mod-php php-mcrypt php-mysql curl php-cli php-mbstring git unzip php-xml \
  libcurl4-openssl-dev pkg-config libssl-dev libsslcommon2-dev php-pear php-dev vim rsyslog cron libfontconfig
 
 
