@@ -19,9 +19,13 @@ if (system.args.length === 1) {
 			// return document.documentElement.innerHTML;
 			return document.getElementsByTagName("script")[5].innerHTML;
 		});
-		var content = title.split("\n");
-        console.log(content[3].replace("view.php", "http://m4ufree.com/view.php"));
-		// console.log('Able to post!');
+        // title = 'undefined';
+        if (~title.indexOf("undefined")) {
+            console.log(title);
+        } else {
+    		var content = title.split("\n");
+            console.log(content[3].replace("view.php", "http://m4ufree.com/view.php"));
+        }
     }
     phantom.exit();
 });
