@@ -22,7 +22,7 @@ if (system.args.length === 1) {
 		});
         // title = 'undefined';
         if (isEmpty(title)) {
-            console.log('undefined');
+            console.log('[]');
         } else if (title.indexOf("undefined") >= 0) {
             console.log(title);
         } else {
