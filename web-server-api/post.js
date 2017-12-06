@@ -20,7 +20,7 @@ if (system.args.length === 1) {
 			return document.getElementsByTagName("script")[5].innerHTML;
 		});
 		var content = title.split("\n");
-        console.log(content[3]);
+        console.log(content[3].replace("view.php", "http://m4ufree.com/view.php"));
 		// console.log('Able to post!');
     }
     phantom.exit();
