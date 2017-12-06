@@ -15,12 +15,15 @@ if (system.args.length === 1) {
     if (status !== 'success') {
         console.log('Unable to post!');
     } else {
-		var title = page.evaluate(function() {
+        var title = 'undefined';
+		title = page.evaluate(function() {
 			// return document.documentElement.innerHTML;
 			return document.getElementsByTagName("script")[5].innerHTML;
 		});
         // title = 'undefined';
-        if (~title.indexOf("undefined")) {
+        if (isEmpty(title)) {
+            console.log('undefined');
+        } else if (title.indexOf("undefined") >= 0) {
             console.log(title);
         } else {
     		var content = title.split("\n");
@@ -29,5 +32,9 @@ if (system.args.length === 1) {
     }
     phantom.exit();
 });
+}
+
+function isEmpty(value){
+  return (value == null || value.length === 0);
 }
 
