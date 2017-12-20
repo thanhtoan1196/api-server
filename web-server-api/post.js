@@ -21,8 +21,12 @@ if (system.args.length === 1) {
             return document.getElementsByTagName("iframe")[0].getAttribute("src");
         });
         if (!isEmpty(title)) {
-            var data = '[ {"file": "view.php?v=CxcXExBZTEwQFwwRAgQGTQQMDAQPBgITChBNAAwOTAYWEQwTBk4UBhAXUlNNAhMTEBMMF00ADA5MCwwATCACEwZNJQYCEU1SWlVRTVRRUxNNIQ8WMQIaTStRVVdNIiIgTjEiMSEkTQ4TVw==","type": "mp4", "label": "Link was died"}]';
-            console.log(data);
+            var data = '[ {file: "xxxxxx",type: "mp4", label: "480p"}],';
+            if (title.indexOf('openload') >=0) {
+            	console.log(data.replace("xxxxxx", title));
+            } else {
+            	console.log(data.replace("xxxxxx", 'https://docs.google.com/file/d/' + title.split("&")[1].split("=")[1] + '/preview'));
+            }
         } else {
     		title = page.evaluate(function() {
     			// return document.documentElement.innerHTML;
