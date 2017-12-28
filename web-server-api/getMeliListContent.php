@@ -62,23 +62,7 @@ function apivn_curl($url, $body='') {
 
 function mehlizmovies($curl){
 	$get = apivn_curl($curl);
-	preg_match('#iframe src="(.+?)"#',$get,$embed);
-	$source = apivn_curl($embed[1]);
-	preg_match_all('#file: "(.+?)",label: "(.+?)"#',$source,$data);
-	$sources = array();
-	foreach ($data[2] as $i => $quality) {
-		if (strpos($data[2][$i], '1080') !== false) {
-			$sources[] = array("file" => $data[1][$i], "label" => "1080p", "type" => "video/mp4");
-		} elseif (strpos($data[2][$i], '720') !== false) {
-			$sources[] = array("file" => $data[1][$i], "label" => "720p", "type" => "video/mp4");
-		}  elseif (strpos($data[2][$i], '480') !== false) {
-			$sources[] = array("file" => $data[1][$i], "label" => "480p", "type" => "video/mp4");
-		} elseif (strpos($data[2][$i], '360') !== false) {
-			$sources[] = array("file" => $data[1][$i], "label" => "360p", "type" => "video/mp4");
-		}
-	}
-	echo json_encode($sources);
-	// return json_encode($sources);
+	echo $get;
 }
 
 ?>
