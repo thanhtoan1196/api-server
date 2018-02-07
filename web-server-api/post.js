@@ -22,7 +22,7 @@ if (system.args.length === 1) {
         });
         if (!isEmpty(title)) {
             var data = '[ {file: "xxxxxx",type: "mp4", label: "480p"}],';
-            if (title.indexOf('openload') >=0) {
+            if (title.indexOf('openload') >=0 || title.indexOf('streamango') >=0) {
             	console.log(data.replace("xxxxxx", title));
             } else {
             	console.log(data.replace("xxxxxx", 'https://docs.google.com/file/d/' + title.split("&")[1].split("=")[1] + '/preview'));
@@ -30,7 +30,7 @@ if (system.args.length === 1) {
         } else {
     		title = page.evaluate(function() {
     			// return document.documentElement.innerHTML;
-    			return document.getElementsByTagName("script")[7].innerHTML;
+    			return document.getElementsByTagName("script")[3].innerHTML;
     		});
             // title = 'undefined';
             if (isEmpty(title)) {
