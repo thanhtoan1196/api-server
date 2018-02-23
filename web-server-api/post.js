@@ -30,7 +30,7 @@ if (system.args.length === 1) {
         } else {
     		title = page.evaluate(function() {
     			// return document.documentElement.innerHTML;
-    			return document.getElementsByTagName("script")[7].innerHTML;
+    			return document.getElementsByTagName("script")[3].outerHTML;
     		});
             // title = 'undefined';
             if (isEmpty(title)) {
