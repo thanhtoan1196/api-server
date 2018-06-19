@@ -21,7 +21,8 @@ if($video == '') {
 		if (strpos($video, 'load.php') !== false) {
 			$title = str_replace('%27s', '', $title);
 			$title = str_replace(' ', '+', $title);
-			getEmbedMovies('https://embed.is/search.php?q=' . $title);
+			getEmbedMovies('http://gcmdemo.pe.hu/web_api/getTestContent.php?title=' . $title);
+			// getEmbedMovies('https://embed.is/search.php?q=' . $title);
 		} else {
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
 			getMovies($movie);
@@ -56,15 +57,8 @@ function apivn_curl($url, $body='') {
 }
 
 function getEmbedMovies($curl) {
-	$basedomain = file_get_contents("https://domain.embed.is/"); 
-	$get = apivn_curl($curl);
-	$pieces = explode("//embed.is/result/?id=", $get);
-	$data = explode("'", $pieces[1]);
-	if(empty($data[0])) {
-		echo "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
-	} else {
-		echo $basedomain . '/movie/stream.php?mid=' . $data[0];
-	}
+	$get = file_get_contents($curl);
+	echo $get;
 }
 
 function getMovies($curl) {
