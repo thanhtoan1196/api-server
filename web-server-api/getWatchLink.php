@@ -1,5 +1,4 @@
 <?php
-
 $video = $_GET['id'];
 $title = $_GET['title'];
 $typesub = $_GET['typesub'];
@@ -23,6 +22,7 @@ if($video == '') {
 			$title = str_replace(' ', '+', $title);
 			getEmbedMovies('https://embed.is/search.php?q=' . $title);
 		} else {
+			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
 			getMovies($movie);
 		}
@@ -30,7 +30,6 @@ if($video == '') {
 		echo $video;
 	}
 }
-
 header("Content-type:application/json");
 function apivn_curl($url, $body='') {
 	$ch = @curl_init();
@@ -54,7 +53,6 @@ function apivn_curl($url, $body='') {
 	curl_close($ch);
 	return $response;
 }
-
 function getEmbedMovies($curl) {
 	$basedomain = file_get_contents("https://domain.embed.is/"); 
 	$get = apivn_curl($curl);
@@ -66,12 +64,10 @@ function getEmbedMovies($curl) {
 		echo $basedomain . '/movie/stream.php?mid=' . $data[0];
 	}
 }
-
 function getMovies($curl) {
 	$get = apivn_curl($curl);
 	$pieces = explode("file: '", $get);
 	$data = explode("',label", $pieces[1]);
 	echo $data[0];
 }
-
 ?>
