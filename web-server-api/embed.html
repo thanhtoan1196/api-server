@@ -1,0 +1,56 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<script type="text/javascript">
+			function getQuerystring(){
+				var q=document.location.toString();
+				q=q.split("?");
+				q=q[1].split("&");
+				var str=""
+				for(i=0;i<q.length;i++){
+					tmp=q[i].split("=")
+					str+=i +". querystring name is '"+tmp[0]+"' value is '"+decodeURIComponent(tmp[1])+"'<br />"
+				}
+				document.getElementsByName('iFrameName')[0].src = decodeURIComponent(tmp[1]);
+			}
+			onload=function(){
+				getQuerystring()
+			}
+		</script>
+		<style>
+			body {
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<iframe name="iFrameName" align="middle" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+		</iframe>
+
+	</body>
+	</html>
+
+	<!-- <html>
+	  <head>
+	     <script type="text/javascript">
+	       function getQuerystring(){
+	         var q=document.location.toString();
+	         q=q.split("?");
+	         q=q[1].split("&");
+	         var str=""
+	         for(i=0;i<q.length;i++){
+	           tmp=q[i].split("=")
+	           str+=i +". querystring name is '"+tmp[0]+"' value is '"+decodeURIComponent(tmp[1])+"'<br />"
+	                                          }
+	         document.getElementsByName("iFrameName").[0].src = "https://vidcloud.icu/load.php?id=MTk2Njk3&title=Jurassic+World%3A+Fallen+Kingdom&typesub=SUB&sub=&cover=Y292ZXIvanVyYXNzaWMtd29ybGQtZmFsbGVuLWtpbmdkb20ucG5n"
+	                      }
+	    onload=function(){
+	           getQuerystring()
+	                     }
+	     </script>
+	  </head>
+	  <body>
+	    <div id="results"></div>
+	    <iframe name="iFrameName"></iframe>
+	  </body>
+	</html> -->
