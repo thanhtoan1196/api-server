@@ -9,18 +9,20 @@ $rl = $_GET['rl'];
 $vabr = $_GET['vabr'];
 $oh = $_GET['oh'];
 $oe = $_GET['oe'];
+$playerurl = "embed.html";
 if($video == '') {
 	echo "Where is the media ID?"; //https://openload.co/embed/7zLUwKrlQqCk  (The ID is "7zLUwKrlQqCk" in this case)
 	exit();
 } else {
 	// $response = str_replace('https://', 'http://', $video);
 	if (strpos($video, 'fbcdn') !== false) {
-    		echo $video . "&efg=" . $efg . "&rl=" . $rl . "&vabr=" . $vabr . "&oh=" . $oh . "&oe=" . $oe;
+		echo $video . "&efg=" . $efg . "&rl=" . $rl . "&vabr=" . $vabr . "&oh=" . $oh . "&oe=" . $oe;
 	} else if (strpos($video, 'vidnode.net') !== false || strpos($video, 'vidcloud.icu') !== false) {
 		if (strpos($video, 'load.php') !== false) {
-			$title = str_replace('%27s', '', $title);
 			$title = str_replace(' ', '+', $title);
-			getEmbedMovies('https://embed.is/search.php?q=' . $title);
+			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
+			$xxx = urlencode($movie);
+			header("Location: $playerurl?movie=$xxx");
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
@@ -68,6 +70,22 @@ function getMovies($curl) {
 	$get = apivn_curl($curl);
 	$pieces = explode("file: '", $get);
 	$data = explode("',label", $pieces[1]);
-	echo $data[0];
+	if (strpos($data[0], 'fbcdn') !== false) {
+		echo $data[0];
+	} else {
+		$arr = explode("/", $data[0]);
+		$link = "";
+		foreach ($arr as $key => $value) {
+		    if ($key >= 7) {
+		    	$link = $link . "/" . $value;
+		    }
+		    // echo $arr;
+		}
+		if (empty($link) != false) {
+		    echo $data[0];
+		} else {
+			echo "http://linkdelivery46.micetop.us/cdn2_vidcdn_pro" . $link;
+		}
+	}
 }
 ?>
