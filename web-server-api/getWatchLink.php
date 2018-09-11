@@ -21,7 +21,8 @@ if($video == '') {
 		if (strpos($video, 'load.php') !== false) {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
-			getMovies($movie);
+			echo $movie;
+			// getMovies($movie);
 			// $xxx = urlencode($movie);
 			// header("Location: $playerurl?movie=$xxx");
 		} else {
