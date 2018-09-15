@@ -28,7 +28,9 @@ if($video == '') {
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
-			getMovies($movie);
+			// getMovies($movie);
+			$xxx = urlencode($movie);
+			header("Location: $playerurl?movie=$xxx");
 		}
 	} else {
 		echo $video;
