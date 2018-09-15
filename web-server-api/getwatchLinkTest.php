@@ -28,9 +28,7 @@ if($video == '') {
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
-			// getMovies($movie);
-			$xxx = urlencode($movie);
-			header("Location: $playerurl?movie=$xxx");
+			getMovies($movie);
 		}
 	} else {
 		echo $video;
@@ -41,7 +39,7 @@ function apivn_curl($url, $body='') {
 	$ch = @curl_init();
 	$header[] = "accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
 	$header[] = "accept-language:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,zh-CN;q=0.4,zh;q=0.3,mt;q=0.2,ar;q=0.1";
-	$header[] = "cookie:__cfduid=d3d781317e8aaa0188b43e092b2c0a3ef1534950163; _gid=GA1.2.248072669.1537002700; _ga=GA1.2.1946866875.1534950335";
+	$header[] = "cookie:__cfduid=d3d781317e8aaa0188b43e092b2c0a3ef1534950163; _ga=GA1.2.1946866875.1534950335; __test; _gid=GA1.2.248072669.1537002700; _gat_gtag_UA_119520712_4=1";
 	$header[] = "referer:https://vidcloud.icu/";
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); 
