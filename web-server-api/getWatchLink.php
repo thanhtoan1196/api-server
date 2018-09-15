@@ -69,7 +69,9 @@ function getEmbedMovies($curl) {
 	}
 }
 function getMovies($curl) {
+	echo $curl;
 	$get = apivn_curl($curl);
+	echo $get;
 	$pieces = explode("file: '", $get);
 	$data = explode("',label", $pieces[1]);
 	if (strpos($data[0], 'fbcdn') !== false) {
