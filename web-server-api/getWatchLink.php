@@ -21,7 +21,8 @@ if($video == '') {
 		if (strpos($video, 'load.php') !== false) {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
-			echo $movie;
+			// echo $movie;
+			getRedirectsMovies($movie);
 			// getMovies($movie);
 			// $xxx = urlencode($movie);
 			// header("Location: $playerurl?movie=$xxx");
@@ -88,6 +89,14 @@ function getMovies($curl) {
 		} else {
 			echo "http://linkdelivery46.micetop.us/cdn2_vidcdn_pro" . $link;
 		}
+	}
+}
+function getRedirectsMovies($curl) {
+	$get = apivn_curl("http://apiserverdemo.000webhostapp.com/getWatchLink.php?id=" . $curl);
+	if (empty($get) == false) {
+		echo $get;
+	} else {
+		echo $curl;
 	}
 }
 ?>
