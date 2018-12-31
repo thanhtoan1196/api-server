@@ -31,7 +31,7 @@ if($video == '') {
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
-			$video = $video . "----------" . "a-1-href-mp4|a-2-href-mp4";
+			$video = $video . "----------" . "a-13-href-mp4|a-14-href-mp4|a-15-href-mp4";
 		}
 		echo $video;
 	}
