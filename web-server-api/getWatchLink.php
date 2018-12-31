@@ -18,6 +18,9 @@ if($video == '') {
 	if (strpos($video, 'fbcdn') !== false) {
 		echo $video . "&efg=" . $efg . "&rl=" . $rl . "&vabr=" . $vabr . "&oh=" . $oh . "&oe=" . $oe;
 	} else if (strpos($video, 'vidnode.net') !== false || strpos($video, 'vidcloud.icu') !== false) {
+		if (strpos($video, 'http://') !== false) {
+			$video = str_replace('http://', 'https://', $video);
+		}
 		if (strpos($video, 'load.php') !== false) {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
