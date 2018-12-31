@@ -84,67 +84,13 @@ function apivn_curl_ol($url, $body='') {
 	return $response;
 }
 function getMovies($curl) {
-	$get = apivn_curl($curl);
-	$pieces = explode("file: '", $get);
-	$data = explode("',label", $pieces[1]);
-	if (strpos($data[0], 'googleusercontent') !== false) {
-		echo $data[0];
+	$piecesOL = explode("openload.co/embed/", $get);
+	$openloadURL = $piecesOL[1);
+	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
+	if (empty($getOL[0])) {
+		echo $curl;
 	} else {
-		$arr = explode("/", $data[0]);
-		$link = "";
-		foreach ($arr as $key => $value) {
-		    if ($key >= 7) {
-		    	$link = $link . "/" . $value;
-		    }
-		    // echo $arr;
-		}
-		
-// 		if (empty($link) != false) {
-			if (empty($data[0]) || strpos($data[0], 'googleusercontent') == false) {
-				$piecesOL = explode("openload.co/embed/", $get);
-				$dataOL = explode("Openload", $piecesOL[1]);
-				$openloadURL = substr($dataOL[0], 0, strlen($dataOL) - 2);
-                
-				// get rapid direct video
-				// $piecesRapidDL = explode("rapidvideo.com/e/", $get);
-				// $dataRapidDL = explode(">", $piecesRapidDL[1]);
-				// $downloadRapidURL = substr($dataRapidDL[0], 0, strlen($dataRapidDL[0]) - 1);
-				// $getRapidDL = apivn_curl_ol("https://www.rapidvideo.com/d/" . $downloadRapidURL);
-				// $piecesRapidDLD = explode("button-download", $getRapidDL);
-				// $dataRapidDLD_1 = explode("<a href=", $piecesRapidDLD[0]);
-				// $dataRapidDLD_2 = substr($dataRapidDLD_1[count($dataRapidDLD_1)  - 1], 1, strlen($dataRapidDLD_1) - 6);
-				// if (!empty($dataRapidDLD_2) && strpos($dataRapidDLD_2, 'mp4') !== false) {
-				// 	echo $dataRapidDLD_2;
-				// } else {
-					// get vidcloud direct video
-				// 	$piecesDL = explode("window.open(", $get);
-				// 	$dataDL = explode(",", $piecesDL[1]);
-				// 	$dataTrim = trim($dataDL[0]);
-				// 	$downloadURL = substr($dataTrim, 1, strlen($dataTrim) - 2);
-				// 	$getDL = apivn_curl_ol($downloadURL);
-				// 	$piecesDLD = explode("href=", $getDL);
-				// 	$dataDLD_1 = explode("download", $piecesDLD[4]);
-				// 	$dataDLD_2 = substr($dataDLD_1[0], 1, strlen($dataDLD_1) - 2);
-				// 	$dataDLD_2 = str_replace(' ', '%20', $dataDLD_2);
-				// 	$dataDLD_2 = str_replace('amp;', '', $dataDLD_2);
-				// 	if (!empty($dataDLD_2) && strpos($dataDLD_2, 'mp4') !== false) {
-				// 		echo $dataDLD_2;
-				// 	} else {
-						$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
-						if (empty($getOL[0])) {
-							echo "https://thisisnotalink.mp4"; //echo $curl;
-						} else {
-							echo $getOL;
-						}
-				// 	}
-				// }
-			
-			} else {
-				echo "$data[0]";
-			}
-// 		} else {
-// 			echo $curl;
-// 		}
+		echo $getOL;
 	}
 }
 ?>
