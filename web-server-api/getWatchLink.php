@@ -25,14 +25,14 @@ if($video == '') {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
 // 			$movie = str_replace('load.php', 'streaming.php', $movie);
-			echo $movie;
+// 			echo $movie;
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
-			getMovies($movie);
+// 			getMovies($movie);
 		}
 	} else if (strpos($video, 'openload') !== false) {
-		getMovies($video);
+// 		getMovies($video);
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
@@ -83,14 +83,14 @@ function apivn_curl_ol($url, $body='') {
 	curl_close($ch);
 	return $response;
 }
-function getMovies($curl) {
-	$piecesOL = explode("openload.co/embed/", $curl);
-	$openloadURL = $piecesOL[1);
-	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
-	if (empty($getOL[0])) {
-		echo $curl;
-	} else {
-		echo $getOL;
-	}
-}
+// function getMovies($curl) {
+// 	$piecesOL = explode("openload.co/embed/", $curl);
+// 	$openloadURL = $piecesOL[1);
+// 	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
+// 	if (empty($getOL[0])) {
+// 		echo $curl;
+// 	} else {
+// 		echo $getOL;
+// 	}
+// }
 ?>
