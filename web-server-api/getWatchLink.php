@@ -84,7 +84,7 @@ function apivn_curl_ol($url, $body='') {
 	return $response;
 }
 function getMovies($curl) {
-	$piecesOL = explode("openload.co/embed/", $get);
+	$piecesOL = explode("openload.co/embed/", $curl);
 	$openloadURL = $piecesOL[1);
 	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
 	if (empty($getOL[0])) {
