@@ -83,14 +83,15 @@ function apivn_curl_ol($url, $body='') {
 	curl_close($ch);
 	return $response;
 }
-// function getMovies($curl) {
-// 	$piecesOL = explode("openload.co/embed/", $curl);
-// 	$openloadURL = $piecesOL[1);
-// 	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
-// 	if (empty($getOL[0])) {
-// 		echo $curl;
-// 	} else {
-// 		echo $getOL;
-// 	}
-// }
+
+function getMovies($curl) {
+	$piecesOL = explode("openload.co/embed/", $curl);
+	$openloadURL = $piecesOL[1);
+	$getOL = apivn_curl_ol("https://getlinkaz.com/get/API/?api=Vankhoa01&id=Fb-openload&link=https://openload.co/f/" . $openloadURL);
+	if (empty($getOL[0])) {
+		echo $curl;
+	} else {
+		echo $getOL;
+	}
+}
 ?>
