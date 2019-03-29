@@ -36,7 +36,7 @@ if($video == '') {
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
-			$video = $video . "----------" . "a-9-href-mp4|a-10-href-mp4|a-11-href-mp4|a-12-href-mp4|a-13-href-mp4|a-14-href-mp4|a-15-href-mp4|a-16-href-mp4|a-17-href-mp4";
+			$video = $video . "----------" . "a-45-href-mp4|a-46-href-mp4|a-47-href-mp4|a-48-href-mp4|a-49-href-mp4|a-50-href-mp4|a-51-href-mp4|a-52-href-mp4|a-53-href-mp4|a-54-href-mp4|a-55-href-mp4";
 		}
 		echo $video;
 	}
