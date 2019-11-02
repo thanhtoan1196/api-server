@@ -34,7 +34,7 @@ if($video == '') {
 	} else if (strpos($video, 'openload') !== false || strpos($video, 'streamango') !== false) {
 		// getMovies($video);
 		// echo $video;
-		echo "";
+		echo "http://film.mp4";
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
