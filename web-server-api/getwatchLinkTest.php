@@ -25,8 +25,9 @@ if($video == '') {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
 // 			$movie = str_replace('load.php', 'streaming.php', $movie);
-// 			echo $movie;
-			echo get_redirect_target($movie);
+			$movie = str_replace('vidnode.net', 'vidcloud9.com', $movie);
+			echo $movie;
+// 			echo get_redirect_target($movie);
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
