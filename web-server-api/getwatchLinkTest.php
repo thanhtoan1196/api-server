@@ -25,7 +25,8 @@ if($video == '') {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
 // 			$movie = str_replace('load.php', 'streaming.php', $movie);
-			echo $movie;
+// 			echo $movie;
+			echo get_redirect_target($movie);
 		} else {
 			$title = str_replace(' ', '+', $title);
 			$movie = $video . "&title=" . $title . "&typesub=" . $typesub . "&sub=" . $sub . "&cover=" . $cover;
@@ -94,5 +95,21 @@ function getMovies($curl) {
 	} else {
 		echo $getOL;
 	}
+}
+function get_redirect_target($url)
+{
+    $ch = curl_init($url);        
+    curl_setopt($ch, CURLOPT_NOBODY, 1);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // follow redirects
+    curl_setopt($ch, CURLOPT_AUTOREFERER, 1); // set referer on redirect
+    curl_setopt($ch,CURLOPT_HEADER,false); // if you want to print the header response change false to true
+    $response = curl_exec($ch);
+    $target = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+    curl_close($ch);
+    if ($target) {
+    	$data = explode("\n", $target);
+        return $data[0];
+    }
+    return false;
 }
 ?>
