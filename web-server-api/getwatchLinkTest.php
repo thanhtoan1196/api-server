@@ -37,6 +37,9 @@ if($video == '') {
 		// getMovies($video);
 		// echo $video;
 		echo "http://film.mp4";
+	} else if (strpos($video, 'fembed') !== false) {
+		$video = str_replace('fembed', 'feurl', $video);
+		echo $video;
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
