@@ -38,7 +38,7 @@ if($video == '') {
 		// echo $video;
 		echo "http://film.mp4";
 	} else if (strpos($video, 'fembed') !== false) {
-		$video = str_replace('https://', 'http://', $video);
+// 		$video = str_replace('https://', 'http://', $video);
 		$video = str_replace('www.', '', $video);
 		$video = str_replace('fembed', 'feurl', $video);
 		echo $video;
