@@ -11,7 +11,7 @@
 					tmp=q[i].split("=")
 					str+=i +". querystring name is '"+tmp[0]+"' value is '"+decodeURIComponent(tmp[1])+"'<br />"
 				}
-				document.getElementsByName('iFrameName')[0].src = decodeURIComponent(tmp[1]);
+				document.getElementsByName('iFrameName')[0].src = "https://hydrax.net/watch?v=" + decodeURIComponent(tmp[1]);
 			}
 			onload=function(){
 				getQuerystring()
