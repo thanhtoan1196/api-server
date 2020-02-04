@@ -42,6 +42,11 @@ if($video == '') {
 		$video = str_replace('www.', '', $video);
 		$video = str_replace('fembed', 'feurl', $video);
 		echo $video;
+	} else if (strpos($video, 'hydrax.net') !== false) {
+		$piecesHydrax = explode("?", $video);
+		$hydraxURL = $piecesHydrax[1];
+		$video = "http://173.255.220.76/embed.html?" . $hydraxURL;
+		echo $video;
 	} else {
 		if (strpos($video, 'https://www.rapidvideo.com/e/') !== false) {
 			$video = str_replace('https://www.rapidvideo.com/e/', 'https://www.rapidvideo.com/d/', $video);
